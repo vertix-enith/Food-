@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maxwell The Cat</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #f8c8dc, #9d7dcf, #2e3a5f);
+            text-align: center;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .sketchfab-embed-wrapper {
+            margin: 0 auto;
+            width: 80%;
+        }
+        .subtitle {
+            font-size: 14px;
+            color: #ddd;
+            margin-top: 10px;
+        }
+        .quote {
+            font-size: 18px;
+            font-style: italic;
+            margin: 20px 0;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background-color 0.3s;
+        }
+        #hungry {
+            background-color: #ff6384;
+            color: white;
+        }
+        #not-hungry {
+            background-color: #36a2eb;
+            color: white;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sketchfab-embed-wrapper"> 
+            <iframe title="Maxwell The cat with bones animation" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/4175776146ba4550a8dd643363b7b0aa/embed" width="600" height="400"></iframe>
+        </div>
+        <p class="subtitle">来自作者的内心os:</p>
+        <p class="quote" id="random-quote"></p>
+        <div class="buttons">
+            <button id="hungry" class="btn">饿</button>
+            <button id="not-hungry" class="btn">不饿</button>
+        </div>
+        <p class="result" id="result"></p>
+    </div>
+    <script>
+        const quotes = [
+            "zy你好,今天心情怎么样啊?",
+            "灵感来源: zy问今天吃什么的时候"
+        ];
+        document.getElementById("random-quote").innerText = quotes[Math.floor(Math.random() * quotes.length)];
+
+        const foodOptions = ["榴莲", "橘子", "潮汕肉丸", "火锅", "排骨汤", "香锅", "土豆西红柿炖牛肉", "问张张"];
+
+        document.getElementById("hungry").addEventListener("click", function() {
+            document.getElementById("result").innerText = foodOptions[Math.floor(Math.random() * foodOptions.length)];
+        });
+
+        document.getElementById("not-hungry").addEventListener("click", function() {
+            document.getElementById("result").innerText = "那饿了再来吧~";
+        });
+    </script>
+</body>
+</html>
